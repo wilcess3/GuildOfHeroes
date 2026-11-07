@@ -1,52 +1,97 @@
-// public class Hero {
-//     public string Name;
-//     public int Health;
-//     public int Level;
-//     public int Experience;
+public class Hero {
+    public string Name;
+    public int Health { get; private set; }
 
-//     public Hero(string name, int health) {
-//         Name = name;
-//         Health = health;
-//         Level = 1;
-//         Experience = 0;
-//     }
+    public int MaxHealth { get; private set; }
 
-//     public void TakeDamage(int damage) {
-//         if (damage <= 0) {
-//             return;
-//         }
+    public int Level;
+    public int Experience;
 
-//         Health -= damage;
+    // public Hero(string name, int health) {
+    //     Name = name;
+    //     Health = health;
+    //     Level = 1;
+    //     Experience = 0;
+    // }
 
-//         if (Health < 0) {
-//             Health = 0;
-//         }
-//     }
+    public Hero(string name, int health) {
+        Name = name;
 
-//     public void Heal(int amount) {
-//         if (amount <= 0) {
-//             return;
-//         }
+        MaxHealth = health;
 
-//         Health += amount;
-//     }
+        if (MaxHealth <= 0) {
+            MaxHealth = 100;
+        }
 
-//     public void GainExperience(int amount) {
-//         if (amount <= 0) {
-//             return;
-//         }
+        if (MaxHealth > 200) {
+            MaxHealth = 200;
+        }
 
-//         Experience += amount;
-//     }
-//     public bool IsAlive() {
-//         return Health > 0;
-//     }
+        Health = health;
 
-//     public string GetInfo() {
-//         return $">>> {Name} <<<\n" +
-//                $"Здоровье: {Health}\n" +
-//                $"Уровень: {Level}\n" +
-//                $"Опыт: {Experience}";
-//     }
+        if (Health < 0) {
+            Health = 0;
+        }
 
-// }
+        if (Health > MaxHealth) {
+            Health = MaxHealth;
+        }
+
+        Level = 1;
+        Experience = 0;
+    }
+
+    public void TakeDamage(int damage) {
+        if (damage <= 0) {
+            return;
+        }
+
+        Health -= damage;
+
+        if (Health < 0) {
+            Health = 0;
+        }
+    }
+
+    // public void Heal(int amount) {
+    //     if (amount <= 0) {
+    //         return;
+    //     }
+
+    //     Health += amount;
+    // }
+
+    public void Heal(int amount) {
+        if (amount <= 0) {
+            return;
+        }
+
+        int missingHealth = MaxHealth - Health;
+
+        if (amount >= missingHealth) {
+            Health = MaxHealth;
+            return;
+        }
+
+        Health += amount;
+    }
+
+    public void GainExperience(int amount) {
+        if (amount <= 0) {
+            return;
+        }
+
+        Experience += amount;
+    }
+    public bool IsAlive() {
+        return Health > 0;
+    }
+
+    public string GetInfo() {
+        return $">>> {Name} <<<\n" +
+               $"Здоровье: {Health}\n" +
+               $"Уровень: {Level}\n" +
+               $"Опыт: {Experience}";
+    }
+
+}
