@@ -19,7 +19,7 @@ public class Product {
             Price = price;
         }
     }
-
+       // метод изменения цены
     public void ChangePrice(int newPrice) {
         if (newPrice <= 0) {
             System.Console.WriteLine($"Ошибка: Нельзя установить цену {newPrice} руб. Цена должна быть больше нуля!");

@@ -79,6 +79,8 @@ Console.ReadLine();
 //метод проверки стоимости отриц
 Console.WriteLine(">>> Проверка 3 (действие с ананасом и яйцами) <<<");
 Product pineapple = new Product("Ананас", -200, "Фрукты");
+Console.WriteLine($"Фактическая цена: {pineapple.Price} руб."); 
+// изм цены
 Product eggs = new Product("яйца", 100, "Яйца");
 Console.WriteLine($"Текущая цена: {eggs.Price} руб.");
 
@@ -88,3 +90,5 @@ eggs.ChangePrice(120);
 // недопустимое действие
 eggs.ChangePrice(0);
 Console.WriteLine($"Итоговая цена: {eggs.Price} руб.");
+//временная строка для ошибки !!!
+//eggs.Price = 999;
