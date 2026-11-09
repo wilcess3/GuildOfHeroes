@@ -96,23 +96,23 @@
 
 
 //доп часть (Г)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-Product milk = new Product("Молоко", 100, "Молочка", 10); 
-//создание обьекта с ошибками
-Product badApple = new Product("   ", -5, "Фрукты", -2); 
-Console.WriteLine("Объект 1: Молоко (ДО)");
-Console.WriteLine($"Название: '{milk.Name}', Цена: {milk.Price}, Кол-во: {milk.Quantity}");
+// Product milk = new Product("Молоко", 100, "Молочка", 10); 
+// //создание обьекта с ошибками
+// Product badApple = new Product("   ", -5, "Фрукты", -2); 
+// Console.WriteLine("Объект 1: Молоко (ДО)");
+// Console.WriteLine($"Название: '{milk.Name}', Цена: {milk.Price}, Кол-во: {milk.Quantity}");
 
-// допустимые действия с молоком
-milk.Sell(3);
-milk.ChangePrice(120);
-// недопустимые действия с молоком 
-milk.Sell(100); 
-milk.ChangePrice(-50); 
+// // допустимые действия с молоком
+// milk.Sell(3);
+// milk.ChangePrice(120);
+// // недопустимые действия с молоком 
+// milk.Sell(100); 
+// milk.ChangePrice(-50); 
 
-Console.WriteLine("Объект 1: Молоко (ПОСЛЕ)");
-Console.WriteLine($"Название: '{milk.Name}', Цена: {milk.Price}, Кол-во: {milk.Quantity}");
-Console.WriteLine("Объект 2: Яблоко (не изменилось)");
-Console.WriteLine($"Название: '{badApple.Name}', Цена: {badApple.Price}, Кол-во: {badApple.Quantity}");
+// Console.WriteLine("Объект 1: Молоко (ПОСЛЕ)");
+// Console.WriteLine($"Название: '{milk.Name}', Цена: {milk.Price}, Кол-во: {milk.Quantity}");
+// Console.WriteLine("Объект 2: Яблоко (не изменилось)");
+// Console.WriteLine($"Название: '{badApple.Name}', Цена: {badApple.Price}, Кол-во: {badApple.Quantity}");
 
 // для проверки ошибк
 // milk.Quantity = 1000; 
