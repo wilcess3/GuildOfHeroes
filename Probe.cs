@@ -32,8 +32,56 @@
 // Console.WriteLine(traceGuild.Heroes[traceGuild.Heroes.Count - 2].Name);
 //     }
 // }
-public static class Probe {
-    public static void Run() {
-        Console.WriteLine(">>> Проба <<<");
-    }
-}
+
+// //ЧАСТЬ Д1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// public static class Probe {
+//     public static void Run() {
+//         Console.WriteLine(">>> Проба <<<");
+
+//         Guild testGuild = new Guild("Тестовая гильдия");
+//         testGuild.Heroes.Add(new Hero("Александр", 150));
+//         testGuild.Heroes.Add(new Hero("Ярослав", 100));
+//         testGuild.Heroes.Add(new Hero("Анастасия", 90));
+
+//         Console.WriteLine("Д.1");
+        
+//         Guild secondGuild = new Guild("Вторая гильдия");
+        
+//         Console.WriteLine($"Элементов во второй гильдии до добавления: {secondGuild.Heroes.Count}");
+
+//         foreach (Hero h in secondGuild.Heroes) {
+//             Console.WriteLine($"Имя: {h.Name}");
+//         }
+
+//         Hero heroFromFirst = testGuild.Heroes[0]; 
+//         secondGuild.Heroes.Add(heroFromFirst);
+        
+//         Console.WriteLine($"Элементов во второй гильдии после добавления: {secondGuild.Heroes.Count}");
+
+
+//         Console.WriteLine("Д.2");
+
+//         if (testGuild.Heroes.Count > 0) {
+//             int totalHealth = 0;
+            
+//             foreach (Hero h in testGuild.Heroes) {
+//                 totalHealth += h.Health;
+//             }
+            
+//             int averageHealth = totalHealth / testGuild.Heroes.Count;
+//             Console.WriteLine($"Среднее здоровье: {averageHealth}");
+
+//             int aboveAverageCount = 0;
+//             foreach (Hero h in testGuild.Heroes) {
+//                 if (h.Health > averageHealth) {
+//                     aboveAverageCount++;
+//                 }
+//             }
+            
+//             Console.WriteLine($"Героев со здоровьем выше среднего: {aboveAverageCount}");
+//         }
+//         else {
+//             Console.WriteLine("Гильдия пуста, среднее здоровье не посчитать.");
+//         }
+//     }
+// }
