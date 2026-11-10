@@ -66,7 +66,7 @@
 
 // }
 
-//доп часть (Г)
+// доп часть (Г)
 // public class Product {
 //     private string _name; 
 //     public string Name {

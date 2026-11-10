@@ -1,4 +1,4 @@
-﻿Probe.Run();
+﻿// Probe.Run();
 Hero yaroslav = new Hero("Ярослав", 100);
 Hero anastasia = new Hero("Анастасия", 90);
 Hero artem = new Hero("Артём", 120);
@@ -35,7 +35,7 @@ foreach (Hero hero in guild.Heroes) {
     }
 }
 Console.WriteLine($"Могут нести тяжелые ящики (здоровье от 120): {StrongCount} ");
-
+//12.2 самый здоровый
 if (guild.Heroes.Count > 0) {
     Hero strongest = guild.Heroes[0];
 
