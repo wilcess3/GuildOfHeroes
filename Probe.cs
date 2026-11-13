@@ -1,5 +1,4 @@
-// public static class Probe {
-//     public static void Run() {
-//         //а
-//     }
-// }
+public static class Probe {
+    public static void Run() {
+    }
+}
