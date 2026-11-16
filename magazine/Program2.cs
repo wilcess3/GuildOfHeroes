@@ -187,3 +187,32 @@
 // Console.WriteLine($"Удален Хлеб: {myStore.RemoveProduct("Хлеб")}"); 
 // Console.WriteLine($"Количество ПОСЛЕ удаления: {myStore.Count}"); 
 
+
+// // практическая №6 шаг 12
+//   Sale mySale = new Sale();
+// Console.WriteLine("1. Пытаемся начать продажу:");
+// bool startOk = mySale.TryStart(milk);
+// Console.WriteLine($"Успешно? {startOk}"); 
+// //УСПЕШНОЕ ЗАВЕРШЕНИЕ
+// Console.WriteLine("2. Пытаемся завершить продажу:");
+// bool finishOk = mySale.TryFinish();
+// Console.WriteLine($"Успешно? {finishOk}");
+
+// //ОТКАЗ ПРИ ПОВТОРЕ
+// Console.WriteLine("3. Пытаемся завершить повторно:");
+// bool finishAgain = mySale.TryFinish();
+// Console.WriteLine($"Успешно? {finishAgain}"); 
+// //ПРОВЕРКА ЧЕРЕЗ ПОИСК
+// Console.WriteLine("4. Проверяем товар в магазине через поиск:");
+// Product foundMilk = myStore.FindByName("Молоко");
+// if (foundMilk != null) {
+//     Console.WriteLine($"Найдено: {foundMilk.Name}, остаток: {foundMilk.Quantity} шт."); 
+//     }
+// //ОТКАЗ ПРИ СТАРТЕ (товара нет на складе)
+// Console.WriteLine("5. Пытаемся продать пустой товар:");
+// Product emptyItem = new Product("Пустышка", 10, "Тест", 0); 
+// Sale sale2 = new Sale();
+// bool startEmpty = sale2.TryStart(emptyItem);
+// Console.WriteLine($"Успешно? {startEmpty}");
+
+

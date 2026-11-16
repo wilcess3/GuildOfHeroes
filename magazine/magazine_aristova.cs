@@ -1,70 +1,70 @@
-// public class Product {
-//     public string Name;
-//     public int Quantity;
-//     public string Category;
-//     public bool IsAvaliable;
-//     public int Price { get; private set; }
-//     public Product(string name, int price, string category) {
-//         Name = name;
-//         Category = category;
-//         Quantity = 1;
-//         IsAvaliable = true;
+// // public class Product {
+// //     public string Name;
+// //     public int Quantity;
+// //     public string Category;
+// //     public bool IsAvaliable;
+// //     public int Price { get; private set; }
+// //     public Product(string name, int price, string category) {
+// //         Name = name;
+// //         Category = category;
+// //         Quantity = 1;
+// //         IsAvaliable = true;
 
-//         //поле и правило допустимости (практическая 3)
-//         if (price <= 0) {
-//             Console.WriteLine($" Цена товара '{Name}' не может быть {price}. Установлена минимальная цена 1 руб.");
-//             Price = 1;
-//         }
-//         else {
-//             Price = price;
-//         }
-//     }
-//        // метод изменения цены
-//     public void ChangePrice(int newPrice) {
-//         if (newPrice <= 0) {
-//             Console.WriteLine($"Ошибка: Нельзя установить цену {newPrice} руб. Цена должна быть больше нуля!");
-//             return;
-//         }
+// //         //поле и правило допустимости (практическая 3)
+// //         if (price <= 0) {
+// //             Console.WriteLine($" Цена товара '{Name}' не может быть {price}. Установлена минимальная цена 1 руб.");
+// //             Price = 1;
+// //         }
+// //         else {
+// //             Price = price;
+// //         }
+// //     }
+// //        // метод изменения цены
+// //     public void ChangePrice(int newPrice) {
+// //         if (newPrice <= 0) {
+// //             Console.WriteLine($"Ошибка: Нельзя установить цену {newPrice} руб. Цена должна быть больше нуля!");
+// //             return;
+// //         }
 
-//         Price = newPrice;
-//         Console.WriteLine($"Цена на товар '{Name}' успешно изменена на {Price} руб.");
-//     }
+// //         Price = newPrice;
+// //         Console.WriteLine($"Цена на товар '{Name}' успешно изменена на {Price} руб.");
+// //     }
 
-//     public void Restock(int amount) {
-//         if (amount <= 0) {
-//             Console.WriteLine("Ошибка: Количество для пополнения должно быть больше нуля!");
-//             return;
-//         }
-//         Quantity = Quantity + amount;
-//     }
+// //     public void Restock(int amount) {
+// //         if (amount <= 0) {
+// //             Console.WriteLine("Ошибка: Количество для пополнения должно быть больше нуля!");
+// //             return;
+// //         }
+// //         Quantity = Quantity + amount;
+// //     }
 
-//     // метод 1
-//     public void Sell(int amount) {
-//         if (amount > Quantity || amount <= 0) {
-//             Console.WriteLine($"Ошибка: Нельзя продать {amount} шт. товара '{Name}'. На складе только {Quantity} шт.");
-//             return;
-//         }
-//         Quantity = Quantity - amount;
-//         Console.WriteLine($"Успешно продано {amount} шт. товара '{Name}'.");
-//     }
+// //     // метод 1
+// //     public void Sell(int amount) {
+// //         if (amount > Quantity || amount <= 0) {
+// //             Console.WriteLine($"Ошибка: Нельзя продать {amount} шт. товара '{Name}'. На складе только {Quantity} шт.");
+// //             return;
+// //         }
+// //         Quantity = Quantity - amount;
+// //         Console.WriteLine($"Успешно продано {amount} шт. товара '{Name}'.");
+// //     }
 
-//     // метод 2 (расчет стоимости)
-//     public int CalculateTotalCost(int amountToBuy) {
-//         return Price * amountToBuy;
-//     }
+// //     // метод 2 (расчет стоимости)
+// //     public int CalculateTotalCost(int amountToBuy) {
+// //         return Price * amountToBuy;
+// //     }
 
-//     // метод 3 (применение скидки)
-//     public void ApplyDiscount(int percent) {
-//         if (percent <= 0 || percent >= 100) {
-//             Console.WriteLine("Ошибка: Скидка должна быть от 1 до 99%!");
-//             return;
-//         }
-//         int discountAmount = (Price * percent) / 100;
-//         Price = Price - discountAmount;
-//         Console.WriteLine($"На товар '{Name}' применена скидка {percent}%. Новая цена: {Price} руб.");
-//     }
+// //     // метод 3 (применение скидки)
+// //     public void ApplyDiscount(int percent) {
+// //         if (percent <= 0 || percent >= 100) {
+// //             Console.WriteLine("Ошибка: Скидка должна быть от 1 до 99%!");
+// //             return;
+// //         }
+// //         int discountAmount = (Price * percent) / 100;
+// //         Price = Price - discountAmount;
+// //         Console.WriteLine($"На товар '{Name}' применена скидка {percent}%. Новая цена: {Price} руб.");
+// //     }
 
-// }
+// // }
 
 // // доп часть (Г)
 // public class Product {
@@ -189,5 +189,49 @@
 //             if (p.Quantity < 5) count++;
 //         }
 //         return count;
+//     }
+// }
+// // практическая работа №6 шаг 12
+// public class Sale {
+//     public Product ProductToSell; 
+//     public bool IsStarted = false;
+//     public bool IsFinished = false;
+
+//     // метод старта
+//     public bool TryStart(Product product) {
+//         if (IsStarted) {
+//             Console.WriteLine("Ошибка: Операция уже начата!");
+//             return false;
+//         }
+//         if (product == null) {
+//             Console.WriteLine("Ошибка: Товар не передан!");
+//             return false;
+//         }
+//         if (product.Quantity <= 0) {
+//             Console.WriteLine($"Ошибка: Товара '{product.Name}' нет на складе!");
+//             return false;
+//         }
+
+//         ProductToSell = product;
+//         IsStarted = true;
+//         Console.WriteLine($"Старт: Продажа '{product.Name}' начата.");
+//         return true;
+//     }
+
+//     // метод завершения
+//     public bool TryFinish() {
+//         if (!IsStarted) {
+//             Console.WriteLine("Ошибка: Операцию не начинали!");
+//             return false;
+//         }
+//         if (IsFinished) {
+//             Console.WriteLine("Ошибка: Операция уже завершена!");
+//             return false;
+//         }
+
+//         ProductToSell.Sell(1); 
+//         IsFinished = true;
+//         Console.WriteLine($"Финиш: Продажа '{ProductToSell.Name}' завершена.");
+//         return true;
 //     }
 // }
