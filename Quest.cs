@@ -4,7 +4,7 @@
 //     public int MinHealth { get; private set; }
 //     public int Reward { get; private set; }
 //     public Hero? AssignedHero { get; private set; }
-//     public bool IsCompleted { get; private set; }
+//     public QuestStatus Status { get; private set; }
 
 //     public Quest(int id, string title, int minHealth, int reward) {
 //         Id = id;
@@ -16,40 +16,33 @@
 //         }
 
 //         MinHealth = minHealth;
-//         if (MinHealth < 0) {
-//             MinHealth = 0;
-//         }
+//         if (MinHealth < 0) MinHealth = 0;
 
 //         Reward = reward;
-//         if (Reward < 1) {
-//             Reward = 1;
-//         }
+//         if (Reward < 1) Reward = 1;
 
 //         AssignedHero = null;
-//         IsCompleted = false;
+//         Status = QuestStatus.Open;
 //     }
 
 // public bool TryAssign(Hero hero) {
-//     if (IsCompleted) {
+//     if (Status != QuestStatus.Open) {
 //         return false;
 //     }
-//     if (AssignedHero != null) {
-//         return false;
-//     }
-//     //новая проверка 11.1
 //     if (!hero.IsAlive()) {
 //         return false;
 //     }
-    
 //     if (hero.Health < MinHealth) {
 //         return false;
 //     }
 
 //     AssignedHero = hero;
+//     Status = QuestStatus.Assigned;
 //     return true;
 // }
+
 // public bool TryComplete() {
-//     if (IsCompleted) {
+//     if (Status != QuestStatus.Assigned) {
 //         return false;
 //     }
 
@@ -68,20 +61,38 @@
 //     }
 
 //     hero.GainExperience(Reward);
-//     IsCompleted = true;
+//     Status = QuestStatus.Completed;
 //     return true;
 // }
-// public string GetInfo() {
-//     string heroName = "исполнитель не назначен";
-    
-//     if (AssignedHero != null) {
-//         heroName = $"исполнитель {AssignedHero.Name}";
+// public bool TryCancel() {
+//     if (Status != QuestStatus.Open && Status != QuestStatus.Assigned) {
+//         return false;
 //     }
 
-//     if (IsCompleted) {
-//         return $"№{Id} «{Title}»: {heroName}, выполнено: да";
-//     } else {
-//         return $"№{Id} «{Title}»: {heroName}, выполнено: нет";
+//     Status = QuestStatus.Cancelled;
+//     return true;
+// }
+
+//     public string GetStatusText() {
+//         switch (Status) {
+//             case QuestStatus.Open:
+//              return "открыто";
+//             case QuestStatus.Assigned:
+//              return "назначено";
+//             case QuestStatus.Completed:
+//              return "выполнено";
+//             case QuestStatus.Cancelled: 
+//             return "отменено";
+//             default:
+//              return "неизвестно";
+//         }
 //     }
-// }   
+
+//     public string GetInfo() {
+//         string heroText = "не назначен";
+//         if (AssignedHero != null) {
+//             heroText = AssignedHero.Name;
+//         }
+//         return $"№{Id} «{Title}»: {GetStatusText()}, исполнитель {heroText}";
+//     }
 // }
